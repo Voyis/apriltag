@@ -24,7 +24,7 @@ install: libapriltag.so
 
 libapriltag.a: $(APRILTAG_OBJS)
 	@echo "   [$@]"
-	@$(AR) -cq $@ $(APRILTAG_OBJS)
+	@$(AR) -cq $@ $(APRILTAG_OBJS) -fPIC
 
 libapriltag.so: $(APRILTAG_OBJS)
 	@echo "   [$@]"

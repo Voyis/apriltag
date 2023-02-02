@@ -5,7 +5,7 @@ import numpy as np
 conf = sysconfig.get_config_vars()
 
 print('CFLAGS', end=';')
-c_flags = []
+c_flags = ['-fPIC']
 # Grab compiler flags minus the compiler itself.
 c_flags.extend(conf.get('CC', '').split()[2:])
 c_flags.extend(conf.get('CFLAGS', '').split())

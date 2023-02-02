@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.1)
 project(apriltags-umich LANGUAGES C CXX)
-
+set(CMAKE_VERBOSE_MAKEFILE ON)
 include_directories(.)
 aux_source_directory(common COMMON_SRC)
 set(APRILTAG_SRCS apriltag.c apriltag_pose.c apriltag_quad_thresh.c tagStandard41h12.c tag16h5.c tag25h9.c tag36h11.c tagCircle21h7.c tagCircle49h12.c tagCustom48h12.c tagStandard52h13.c)
@@ -9,6 +9,9 @@ set(CMAKE_BUILD_TYPE Release)
 
 option (USE_APRIL_TAGS_PYTHON_WRAPPER "Build the python wrappers." YES)
 option (BUILD_APRIL_TAG_EXAMPLES "Build the example programs." YES)
+
+set(CMAKE_C_FLAGS         "${CMAKE_C_FLAGS} -fPIC") 
+set(CMAKE_CXX_FLAGS         "${CMAKE_CXX_FLAGS} -fPIC") 
 
 # Library
 file(GLOB TAG_FILES ${CMAKE_SOURCE_DIR}/tag*.c)
